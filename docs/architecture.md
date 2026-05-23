@@ -1,14 +1,13 @@
-# Architecture Notes
+# Architecture
 
-1. **Data layer**: Supabase tables store drugs/interactions/cross-reactivity.
-2. **Safety layer**: deterministic functions only (no LLM calls).
-3. **Constraint layer**: severity-ranked symbols and directives.
-4. **LLM layer**: consume constraint text as non-overridable system prefix.
-
-## Performance
-- Interaction pairs are pre-indexed in memory as a normalized key map.
-- Patient medication check is O(n) lookups after preprocessing.
+## Layers
+1. **Database layer** (Supabase): `drugs`, `drug_interactions`, `allergy_cross_reactivity`.
+2. **Deterministic engine layer**: interaction lookup, allergy matching, renal rules, calculators.
+3. **Constraint generation layer**: converts safety findings into non-overridable prompt text.
+4. **LLM layer**: two modes (generic/enhanced) for side-by-side comparison.
+5. **UI layer**: patient selector, safety alerts, response comparison.
 
 ## Extensibility
-- New drug/interaction are data-only inserts.
-- Calculators are independent functions and can be registry-driven.
+- Add a drug/interaction with one row insert; logic auto-picks it up.
+- DDI pairs pre-indexed in memory map for fast O(n) checks per medication list.
+- New calculators can be added as independent functions and included in route orchestration.

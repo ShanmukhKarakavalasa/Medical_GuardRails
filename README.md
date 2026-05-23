@@ -1,20 +1,29 @@
-# Medical GuardRails - Drug Safety Engine
+# Doctor BRAHMO Drug Safety Engine
 
-Deterministic pre-LLM safety layer for clinical prompts.
+Next.js + TypeScript demo app implementing deterministic pre-LLM medication safety guardrails.
 
-## Features
-- Database-driven DDI lookup, allergy conflict logic, renal dose checks, calculators.
-- Constraint text generator for LLM system prompt injection.
-- Includes schema + seed SQL for 50 drugs and 30 interactions.
+## Project Structure
+- `src/app/page.tsx` main demo UI
+- `src/app/api/safety-check/route.ts` deterministic safety engine endpoint
+- `src/app/api/claude/route.ts` generic vs safety-enhanced LLM endpoint
+- `src/lib/supabase.ts`, `src/lib/safety-engine.ts`, `src/lib/calculators.ts`, `src/lib/types.ts`
+- `src/components/PatientCard.tsx`, `SafetyAlerts.tsx`, `ResponseComparison.tsx`
+- `supabase/schema.sql`, `supabase/seed.sql`
+- `docs/architecture.md`
 
-## Quick start
-```bash
+## Run locally (Windows E drive)
+```powershell
+E:
+cd \Medical_GuardRails
 npm install
-npm run check
+copy .env.local.example .env.local
+# fill env values
+npm run dev
 ```
 
-## Files
-- `supabase/schema.sql` / `supabase/seed.sql`
-- `src/lib/safety-engine.js`
-- `src/lib/calculators.js`
-- `test/safety.test.mjs`
+Open `http://localhost:3000`.
+
+## Validation
+```bash
+npm run check
+```
