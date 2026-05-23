@@ -1,5 +1,4 @@
 import { AllergyCrossReactivity, Drug, DrugInteraction, Patient } from './types';
-import fs from 'node:fs';
 
 export const patients: Patient[] = [
   { id:1,label:'Patient 1',age:65,sex:'male',medications:['Metformin','Glimepiride','Telmisartan','Atorvastatin'],allergies:[{name:'Penicillin',reaction:'ANAPHYLAXIS'}],creatinine:2.1,egfr:31.2 },
