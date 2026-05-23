@@ -1,0 +1,9 @@
+{
+  "name": "medical-guardrails",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "check": "node --test test/*.test.mjs"
+  },
+  "type": "module"
+}
