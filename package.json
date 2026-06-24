@@ -1,0 +1,25 @@
+{
+  "name": "brahmo-drug-safety",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "check": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@supabase/supabase-js": "2.49.1"
+  },
+  "devDependencies": {
+    "typescript": "5.5.4",
+    "@types/node": "22.5.4",
+    "@types/react": "18.3.5",
+    "@types/react-dom": "18.3.0"
+  },
+  "type": "module"
+}
